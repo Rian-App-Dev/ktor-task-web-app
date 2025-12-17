@@ -20,7 +20,7 @@ fun Application.configureTemplating() {
     }
     routing {
         get("/html-thymeleaf") {
-            call.respond(ThymeleafContent("index", mapOf("user" to ThymeleafUser(1, "user1"))))
+            call.respond(ThymeleafContent(template = "index", model = mapOf("user" to ThymeleafUser(1, "user1"))))
         }
         get("/tasks") {
             val tasks = listOf(
@@ -29,8 +29,9 @@ fun Application.configureTemplating() {
                 Task("shopping", "Buy the groceries", Priority.High),
                 Task("painting", "Paint the fence", Priority.Medium)
             )
-            call.respond(ThymeleafContent("all-tasks", mapOf("tasks" to tasks)))
+            call.respond(ThymeleafContent(template = "all-tasks", model = mapOf("tasks" to tasks)))
         }
+
     }
 }
 data class ThymeleafUser(val id: Int, val name: String)
