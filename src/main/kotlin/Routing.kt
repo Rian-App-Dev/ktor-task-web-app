@@ -1,5 +1,7 @@
 package com.example
 
+import com.example.model.Priority
+import com.example.model.Task
 import io.ktor.server.application.*
 import io.ktor.server.http.content.*
 import io.ktor.server.response.*
@@ -15,5 +17,6 @@ fun Application.configureRouting() {
         }
         // Static plugin. Try to access `/static/index.html`
         staticResources("/static", "static")
+
     }
 }
